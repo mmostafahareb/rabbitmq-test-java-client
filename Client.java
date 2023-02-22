@@ -13,7 +13,7 @@ public class Client {
 
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         for(int i=1; i<=50; i++) {
-            String message = Integer.toString(i);
+            String message = i + "";
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
             System.out.println("Sent '" + message + "'");
             Thread.sleep(1000);
